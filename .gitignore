@@ -1,0 +1,11 @@
+# 构建产物
+bin/
+obj/
+
+# IDE 缓存
+.vs/
+*.user
+*.suo
+
+# 发布输出
+publish/

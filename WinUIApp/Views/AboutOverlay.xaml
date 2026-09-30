@@ -1,0 +1,84 @@
+<UserControl
+    x:Class="LyricsApp.WinUI.Views.AboutOverlay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+        <!-- 半透明遮罩，拦截下层主界面的点击 -->
+        <Border x:Name="MaskBorder" Background="#88000000" Opacity="0"/>
+
+        <!-- 居中浮动面板（实现方式与其他悬浮层一致：遮罩 + 居中面板 + 开关动画） -->
+        <Border x:Name="PanelBorder"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Width="630" CornerRadius="12"
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                BorderBrush="#22808080" BorderThickness="1"
+                Opacity="0">
+            <Border.RenderTransform>
+                <TranslateTransform x:Name="PanelTransform"/>
+            </Border.RenderTransform>
+
+            <Grid Padding="28,24,28,20" RowSpacing="18">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- 标题(左) + 关闭(右) -->
+                <Grid Grid.Row="0">
+                    <TextBlock Text="关于" FontSize="20" FontWeight="Bold"/>
+                    <Button Content="✕" HorizontalAlignment="Right"
+                            VerticalAlignment="Center" MinWidth="36" Padding="6,2"
+                            Background="Transparent" BorderThickness="0"
+                            Click="OnCloseClick"/>
+                </Grid>
+
+                <StackPanel Grid.Row="1" Spacing="14">
+
+                    <!-- 信息容器：左图标 + 右名称/英文名/版本/作者（居中偏上） -->
+                    <Grid ColumnSpacing="18" HorizontalAlignment="Center" Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Width="96" Height="96"
+                                CornerRadius="14" BorderBrush="#22808080" BorderThickness="1"
+                                Background="#FAFAFA">
+                            <Image x:Name="IconImage" Stretch="Uniform" Margin="8"/>
+                        </Border>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="3">
+                            <TextBlock Text="逐字歌词" FontSize="26" FontWeight="Bold"/>
+                            <TextBlock Text="ONLC — Onire Lyric Checker" FontSize="13" Foreground="Gray"/>
+                            <TextBlock x:Name="VersionText" FontSize="13"/>
+                            <TextBlock Text="作者：Oniremisce" FontSize="13"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <!-- Slogan -->
+                    <TextBlock Text="全能歌词匹配工具" FontSize="16" FontWeight="SemiBold"
+                               HorizontalAlignment="Center"/>
+
+                    <!-- 开源信息 -->
+                    <StackPanel Spacing="4" HorizontalAlignment="Center">
+                        <TextBlock Text="本软件基于 MIT License 开源发布，源码托管于 GitHub。"
+                                   FontSize="12" Foreground="Gray" HorizontalAlignment="Center"/>
+                        <TextBlock Text="界面基于 Windows App SDK 构建，使用 Win2D、TagLib#、NAudio 等开源库。"
+                                   FontSize="12" Foreground="Gray" HorizontalAlignment="Center"/>
+                        <TextBlock Text="第三方组件声明详见仓库 THIRD-PARTY-NOTICES。"
+                                   FontSize="12" Foreground="Gray" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Copyright © 2026 Oniremisce"
+                                   FontSize="12" Foreground="Gray" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- 链接按钮排 -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12"
+                                Margin="0,6,0,4">
+                        <Button Content="GitHub 仓库" MinWidth="110" Click="OnRepoClick"/>
+                        <Button Content="检查更新" MinWidth="110" Click="OnUpdateClick"/>
+                        <Button Content="问题反馈" MinWidth="110" Click="OnIssueClick"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

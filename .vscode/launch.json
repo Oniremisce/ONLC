@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "调试 歌词工具 (WinUI 3)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}\\WinUIApp\\bin\\x64\\Debug\\net8.0-windows10.0.19041.0\\LyricsApp.WinUI.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}\\WinUIApp",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        }
+    ]
+}
