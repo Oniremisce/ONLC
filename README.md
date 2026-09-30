@@ -13,11 +13,22 @@
 
 一个面向 Windows 桌面的歌词工具：搜索、匹配、写入、逐字打词、时间轴校准，一站式完成。
 
+> **核心定位：为本地歌曲文件写入内嵌的逐字 / 逐行歌词。**
+> 写入完成后，歌词随音频文件走——在[椒盐音乐 Salt Player](https://github.com/Moriafly/SaltPlayerSource)、[Folia](https://github.com/chthollyphile/folia-major) 等支持读取内嵌歌词的播放器中即可直接实现逐字卡拉 OK 效果，无需依赖任何网络歌词。
+
 [下载最新版本](https://github.com/Oniremisce/ONLC/releases/latest) · [问题反馈](https://github.com/Oniremisce/ONLC/issues/new)
 
 </div>
 
 ---
+
+## 📸 界面预览
+
+| 主界面 · KTV 逐字染色歌词 | 匹配歌词 · 四平台候选 |
+|---|---|
+| ![主界面](docs/screenshots/main.png) | ![匹配歌词](docs/screenshots/match.png) |
+| **全部替换 · 批量处理** | **手工打词 · 逐字听打** |
+| ![全部替换](docs/screenshots/replace.png) | ![手工打词](docs/screenshots/manual.png) |
 
 ## ✨ 功能总览
 
@@ -58,7 +69,7 @@
 |---|---|
 | mp3 / flac / wav / m4a / aac / ogg / wma / ape / opus | LRC、增强 LRC（翻译＋发音）、QRC、KRC、yrc |
 
-歌词以 **ID3v2 USLT** 等标准帧内嵌进音频文件，主流播放器均可读取。
+歌词以 **ID3v2 USLT** 等标准帧内嵌进音频文件，兼容[椒盐音乐 Salt Player](https://github.com/Moriafly/SaltPlayerSource)、[Folia](https://github.com/chthollyphile/folia-major) 等支持内嵌歌词的播放器，逐字歌词可完整还原卡拉 OK 式逐字渲染效果。
 
 ## 🚀 快速开始
 
